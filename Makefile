@@ -1,5 +1,7 @@
 PKG  = github.com/DevMine/fluxio
 EXEC = fluxio
+VERSION = 1.0.0
+DIR = ${EXEC}-${VERSION}
 
 all: check test build
 
@@ -11,6 +13,14 @@ build:
 
 test:
 	go test -v ${PKG}/...
+
+package: clean deps build
+	test -d ${DIR} || mkdir ${DIR}
+	cp ${EXEC} ${DIR}/
+	cp README.md ${DIR}/
+	cp fluxio.conf.sample ${DIR}/
+	tar czvf ${DIR}.tar.gz ${DIR}
+	rm -rf ${DIR}
 
 deps:
 	go get -u github.com/lib/pq

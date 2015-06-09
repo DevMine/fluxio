@@ -15,7 +15,7 @@ database connexion information. You can simply rename `fluxio.conf.sample` to
 `fluxio` expects one table with two columns; one of type `character varying`
 which acts as the primary key (default name: key) and another one of type
 `jsonb` which acts as the JSON store (default name: content). You can specify
-the column names with the `-col-content` and `col-key` flags. If you do not use
+the column names with the `-col-content` and `-col-key` flags. If you do not use
 the default PostgreSQL schema, you can specify the schema name with the `-s`
 option.
 
